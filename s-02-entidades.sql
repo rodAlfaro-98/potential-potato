@@ -2,6 +2,8 @@
 --@Fecha Creación:  30/12/2021
 --@Descripción:     Script de creación de las entidades del proyecto de Pet Home
 
+connect aa_proy_admin/alfaro
+
 prompt creando "Empleado"
 
 drop table empleado cascade constraint;
@@ -233,4 +235,17 @@ create table REVISION_MASCOTA_REFUGIO(
   empleado_id number(10,0) not null
   constraint revision_mascota_refugio_empleado_id_fk
   references empleado(empleado_id)
+);
+
+prompt creando tabla "Interesado_mascota"
+create table interesado_mascota(
+  cliente_id number(10,0) not null,
+  mascota_id number(10,0) not null,
+  fecha_seleccion date,
+  constraint interesado_mascota_pk
+  primary key(cliente_id,mascota_id),
+  constraint interesado_mascota_cliente_id_fk 
+  foreign key(cliente_id) references cliente(cliente_id),
+  constraint interesado_mascota_mascota_id_fk 
+  foreign key(mascota_id) references mascota(mascota_id)
 );

@@ -9,7 +9,7 @@ grant create session, create table, create view, create sequence,
 
 prompt Creando usuario Invitado
 create user aa_proy_invitado identified by alfaro quota unlimited on users;
-grant create session to aa_proy_invitado;
+grant create session, create synonym to aa_proy_invitado;
 
 prompt Iniciando con usuario Admin
 
