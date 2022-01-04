@@ -108,7 +108,8 @@ create table DIRECCION_WEB_REFUGIO(
   direccion_web_refugio_id primary key,
   centro_operativo_id number(5,0) constraint
   direccion_web_refugio_centro_operativo_fk references
-  refugio(centro_operativo_id)
+  refugio(centro_operativo_id),
+  direccion_web varchar2(500) not null
 );
 
 
@@ -238,6 +239,7 @@ create table REVISION_MASCOTA_REFUGIO(
 );
 
 prompt creando tabla "Interesado_mascota"
+drop table interesado_mascota;
 create table interesado_mascota(
   cliente_id number(10,0) not null,
   mascota_id number(10,0) not null,
