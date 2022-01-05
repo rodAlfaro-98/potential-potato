@@ -86,7 +86,7 @@ create table REFUGIO(
   refugio_regugio_id_pk references
   refugio(centro_operativo_id),
   constraint refugio_centro_operativo_id_fk foreign key(centro_operativo_id)
-  references centro_operativo(centro_operativo_id)
+  references refugio(centro_operativo_id)
 );
 
 prompt creando tabla "Oficina"
@@ -96,7 +96,7 @@ create table OFICINA(
   centro_operativo_id number(5,0) constraint oficina_pk primary key,
   rfc varchar2(20) not null constraint oficina_rfc_uk unique,
   firma_electronica blob not null,
-  nombre_responsable_legar varchar2(120) not null
+  nombre_responsable_legal varchar2(120) not null
 );
 
 

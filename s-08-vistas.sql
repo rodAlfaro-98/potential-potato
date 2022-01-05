@@ -36,17 +36,13 @@ join mascota m
 on r.mascota_id = m.mascota_id
 join cliente c 
 on m.cliente_id = c.cliente_id
-where r.revision_mascota_adoptada_id = (
-    select revision_mascota_adoptada_id 
+where r.fecha_revision = (
+  select ultima_revision
+  from(
+    select mascota_id, max(fecha_revision) ultima_revision
     from revision_mascota_adoptada
-    where fecha_revision = (
-        select ultima_revision
-        from(
-            select mascota_id, max(fecha_revision) ultima_revision
-            from revision_mascota_adoptada
-            group by (mascota_id)
-        )
-    )
+    group by (mascota_id)
+  ) where mascota_id = m.mascota_id
 );
 
 create or replace view v_titulos_empleados(
