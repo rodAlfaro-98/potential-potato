@@ -81,3 +81,32 @@ start with 1
 increment by 1
 nocycle;
 
+drop sequence operaciones_centro_operativo_seq;
+create sequence operaciones_centro_operativo_seq
+start with 1 
+increment by 1
+nocycle;
+
+drop sequence empleado_log_seq;
+create sequence empleado_log_seq
+start with 1
+increment by 1
+nocycle;
+
+drop sequence motivo_rechazo_seq;
+create sequence motivo_rechazo_seq
+start with 1
+increment by 1
+nocycle;
+
+drop sequence notificacion_revision_cliente_seq;
+create sequence notificacion_revision_cliente_seq
+start with 1
+increment by 1
+nocycle;
+
+drop sequence notificacion_revision_refugio_seq;
+create sequence notificacion_revision_refugio_seq
+start with 1
+increment by 1
+nocycle;

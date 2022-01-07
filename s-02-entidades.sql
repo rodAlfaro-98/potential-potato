@@ -235,11 +235,12 @@ create table REVISION_MASCOTA_REFUGIO(
   references mascota(mascota_id),
   empleado_id number(10,0) not null
   constraint revision_mascota_refugio_empleado_id_fk
-  references empleado(empleado_id)
+  references empleado(empleado_id),
+  fecha_revision date not null
 );
 
 prompt creando tabla "Interesado_mascota"
-drop table interesado_mascota;
+drop table interesado_mascota cascade constraint;
 create table interesado_mascota(
   cliente_id number(10,0) not null,
   mascota_id number(10,0) not null,
@@ -250,4 +251,82 @@ create table interesado_mascota(
   foreign key(cliente_id) references cliente(cliente_id),
   constraint interesado_mascota_mascota_id_fk 
   foreign key(mascota_id) references mascota(mascota_id)
+);
+
+prompt creando tabla "operaciones_centro_operativo"
+drop table operaciones_centro_operativo cascade constraint;
+create table operaciones_centro_operativo(
+  operaciones_centro_operativo_id number (10,0) constraint 
+  operaciones_centro_operativo_pk primary key,
+  usuario varchar2(80),
+  fecha_accion date not null,
+  empleado_antiguo number(10,0) constraint
+  operaciones_centro_operativo_empleado_antiguo_fk
+  references empleado(empleado_id),
+  empleado_nuevo number(10,0) constraint
+  operaciones_centro_operativo_empleado_nuevo_fk
+  references empleado(empleado_id),
+  otros_cambios varchar2(4000) not null
+);
+
+prompt creando tabla "empleado_log"
+drop table empleado_log cascade constraint;
+create table empleado_log(
+  empleado_log_id number(10,0) constraint empleado_log_fk primary key,
+  empleado_id number(10,0) constraint empleado_log_empleado_id_fk
+  references empleado(empleado_id),
+  sueldo_anterior number(8,2) not null,
+  sueldo_nuevo number(8,2) not null,
+  es_veterinario number(1,0) not null,
+  es_administrativo number(1,0) not null,
+  fecha_actualizacion date not null,
+  usuario varchar2(30) not null
+);
+
+prompt creando tabla "motivo rechazo"
+drop table motivo_rechazo cascade constraint;
+create table motivo_rechazo(
+  motivo_rechazo_id number(10,0) constraint motivo_rechazo_pk primary key,
+  cliente_id number(10,0) not null constraint motivo_rechazo_cliente_id_fk
+  references cliente(cliente_id),
+  fecha_rechazo date not null,
+  mascota_id number(10,0) not null constraint motivo_rechazo_mascota_id_fk
+  references mascota(mascota_id),
+  observaciones varchar2(4000) not null
+);
+
+prompt creando tabla "notificacion revision cliente"
+drop table notificacion_revision_cliente cascade constraint;
+create table notificacion_revision_cliente(
+  notificacion_revision_cliente_id number(10,0) constraint
+  notificacion_revision_cliente_pk primary key,
+  revision_mascota_adoptada_id number(10,0) constraint
+  notificacion_revision_cliente_revision_mascota_adoptada_fk
+  references revision_mascota_adoptada(revision_mascota_adoptada_id),
+  mascota_id number(10,0) constraint 
+  notificacion_revision_cliente_mascota_id_fk references mascota(mascota_id),
+  calificacion_salud number(2,0) not null,
+  status_actual_id number(10,0) constraint 
+  notificacion_revision_cliente_status_actual_id_fk references status(status_id),
+  observaciones varchar2(500) not null,
+  fecha_ultima_revision date not null
+);
+
+prompt creando tabla "notificacion revision refugio"
+drop table notificacion_revision_refugio cascade constraint;
+create table notificacion_revision_refugio(
+  notificacion_revision_refugio_id number(10,0) constraint 
+  notificacion_revision_refugio_pk primary key,
+  revision_mascota_refugio_id number(10,0) constraint
+  notificacion_revision_refugio_revision_mascota_refugio_id_fk
+  references REVISION_MASCOTA_REFUGIO(revision_mascota_refugio_id),
+  mascota_id number(10,0) constraint 
+  notificacion_revision_refugio_mascota_id_fk references mascota(mascota_id),
+  veterinario_id number(10,0) constraint 
+  notificacion_revision_refugio_veterinario_id_fk 
+  references empleado(empleado_id),
+  diagnostico_pasado varchar2(500) not null,
+  status_actual_id number(10,0) constraint 
+  notificacion_revision_refugio_status_actual_id_fk references status(status_id),
+  fecha_ultima_revision date not null
 );

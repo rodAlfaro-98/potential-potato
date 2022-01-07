@@ -18,7 +18,7 @@ on m.status_id = s.status_id
 left join mascota mp
 on m.mascota_papa = mp.mascota_id 
 left join mascota mm
-on m.mascota_mama = mp.mascota_id
+on m.mascota_mama = mm.mascota_id
 left join tipo_mascota tp 
 on mp.tipo_mascota_id = tp.tipo_mascota_id
 left join tipo_mascota tm

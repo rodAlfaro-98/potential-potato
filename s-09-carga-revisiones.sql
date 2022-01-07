@@ -25,14 +25,15 @@ begin
             select centro_operativo_id into v_refugio_id
             from mascota
             where mascota_id = i;
+         v_fecha_revision := sysdate - 30*round(dbms_random.value(1,7));
 
             v_empleado_id := 6*round(dbms_random.value(1,16))+1;
 
-            insert into Revision_mascota_refugio(revision_mascota_refugio_id,diagnostico,foto,mascota_id,empleado_id)
-            values(REVISION_MASCOTA_REFUGIO_SEQ.nextval,v_nom,empty_blob(),i,v_empleado_id);
+            insert into Revision_mascota_refugio(revision_mascota_refugio_id,diagnostico,foto,mascota_id,empleado_id,fecha_revision)
+            values(REVISION_MASCOTA_REFUGIO_SEQ.nextval,v_nom,empty_blob(),i,v_empleado_id,v_fecha_revision);
         else
             v_num_revision := round(dbms_random.value(1,100));
-            v_fecha_revision := sysdate - round(dbms_random.value(1,100));
+            v_fecha_revision := sysdate - 30*round(dbms_random.value(1,7));
             v_calificacion_salud := round(dbms_random.value(1,10));
             v_costo := i * round(dbms_random.value(1,50));
             v_centro_operativo_id := 2*round(dbms_random.value(1,49))+1;

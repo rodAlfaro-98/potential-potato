@@ -32,7 +32,7 @@ begin
             v_mama_id := null;
             v_centro_operativo_id := null;
         end if;
-        if(mod(v_status_id,5) = 0 or mod(v_status_id,5) = 4 )then
+        if(mod(v_status_id,5) = 0 or mod(v_status_id,5) = 4 or mod(v_status_id,5) = 3)then
             v_cliente_id := i;
         else    
             v_cliente_id := null;
@@ -42,7 +42,7 @@ begin
             mascota_papa,fecha_status,nombre,folio,fecha_ingreso,
             fecha_nacimiento,tipo_mascota_id,origen_mascota_id,centro_operativo_id,
             status_id,cliente_id)
-        values(i,null,v_mama_id,v_papa_id,v_fecha_status,v_nom,v_folio,v_fecha_ingreso,
+        values(mascota_seq.nextval,null,v_mama_id,v_papa_id,v_fecha_status,v_nom,v_folio,v_fecha_ingreso,
             v_fecha_nacimiento,v_tipo_masota_id,v_origen_mascota_id,v_centro_operativo_id,
             v_status_id,v_cliente_id);
         insert into historial_status(historial_status_id,fecha_status,status_id,mascota_id)
