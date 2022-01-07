@@ -17,6 +17,6 @@ for i in range(0,100):
     direccion = 'Calle ' + str(i) + ', Colonia Industrial ' + str(i) + ', CDMX'
     username = lista_nombres[val_nombre]+'_'+str(i)
     passwd = password + i
-    cadena = str(i+1)+'#'+Slista_nombres[val_nombre]+'#'+lista_app[val_paterno]+'#'+lista_apm[val_materno]+'#'+direccion+'#'+ocupacion[val_ocupacion]+'#'+username+'#'+str(passwd)+'\n'
+    cadena = str(i+1)+'#'+lista_nombres[val_nombre]+'#'+lista_app[val_paterno]+'#'+lista_apm[val_materno]+'#'+direccion+'#'+ocupacion[val_ocupacion]+'#'+username+'#'+str(passwd)+'\n'
     f.write(cadena)
 f.close()
