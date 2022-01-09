@@ -19,3 +19,12 @@ create private temporary table ora$ptt_datos_donaciones_txn (
   max_donacion number(13,2),
   min_donacion number(13,2)
 )on commit drop definition;
+
+drop table mascota_defuncion_temp;
+create global temporary table mascota_defuncion_temp(
+  mascota_id number(10,0),
+  nombre varchar2(80),
+  fecha_status date,
+  causa_muerte varchar2(400),
+  cliente_id number(10,0)
+)on commit delete rows;

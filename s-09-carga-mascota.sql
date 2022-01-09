@@ -50,4 +50,63 @@ begin
     end loop;
 end;
 /
+
+
+insert into mascota (mascota_id,causa_muerte,mascota_mama, 
+    mascota_papa,fecha_status,nombre,folio,fecha_ingreso,
+    fecha_nacimiento,tipo_mascota_id,origen_mascota_id,centro_operativo_id,
+    status_id,cliente_id)
+values(mascota_seq.nextval,'moquillo',null,null,
+sysdate - 3,'Bolillo','MFET78S6',sysdate-1095,sysdate-4745,round(dbms_random.value(1,47)),
+round(dbms_random.value(1,2)),null,6,null);
+
+insert into mascota (mascota_id,causa_muerte,mascota_mama, 
+    mascota_papa,fecha_status,nombre,folio,fecha_ingreso,
+    fecha_nacimiento,tipo_mascota_id,origen_mascota_id,centro_operativo_id,
+    status_id,cliente_id)
+values(mascota_seq.nextval,'moquillo',null,null,
+sysdate - 3,'MArgarita','MLKPS456',sysdate-1295,sysdate-3450,round(dbms_random.value(1,47)),
+round(dbms_random.value(1,2)),null,6,null);
+
+insert into mascota (mascota_id,causa_muerte,mascota_mama, 
+    mascota_papa,fecha_status,nombre,folio,fecha_ingreso,
+    fecha_nacimiento,tipo_mascota_id,origen_mascota_id,centro_operativo_id,
+    status_id,cliente_id)
+values(mascota_seq.nextval,'moquillo',null,null,
+sysdate - 3,'MArgarita','MLKPS457',sysdate-1295,sysdate-3450,round(dbms_random.value(1,47)),
+round(dbms_random.value(1,2)),null,6,null);
+
+insert into mascota (mascota_id,causa_muerte,mascota_mama, 
+    mascota_papa,fecha_status,nombre,folio,fecha_ingreso,
+    fecha_nacimiento,tipo_mascota_id,origen_mascota_id,centro_operativo_id,
+    status_id,cliente_id)
+values(mascota_seq.nextval,'indigestion',null,null,
+sysdate - 3,'Limon','LMSW1235',sysdate-1346,sysdate-2450,round(dbms_random.value(1,47)),
+round(dbms_random.value(1,2)),null,6,null);
+
+insert into mascota (mascota_id,causa_muerte,mascota_mama, 
+    mascota_papa,fecha_status,nombre,folio,fecha_ingreso,
+    fecha_nacimiento,tipo_mascota_id,origen_mascota_id,centro_operativo_id,
+    status_id,cliente_id)
+values(mascota_seq.nextval,'indigestion',null,null,
+sysdate - 3,'Carnalito','CNLTK123',sysdate-1595,sysdate-3050,round(dbms_random.value(1,47)),
+round(dbms_random.value(1,2)),null,6,null);
+
+insert into mascota (mascota_id,causa_muerte,mascota_mama, 
+    mascota_papa,fecha_status,nombre,folio,fecha_ingreso,
+    fecha_nacimiento,tipo_mascota_id,origen_mascota_id,centro_operativo_id,
+    status_id,cliente_id)
+values(mascota_seq.nextval,'Rabia',null,null,
+sysdate - 3,'Tortas','TTTTK123',sysdate-1285,sysdate-2650,round(dbms_random.value(1,47)),
+round(dbms_random.value(1,2)),null,6,null);
+
+
+insert into mascota (mascota_id,causa_muerte,mascota_mama, 
+    mascota_papa,fecha_status,nombre,folio,fecha_ingreso,
+    fecha_nacimiento,tipo_mascota_id,origen_mascota_id,centro_operativo_id,
+    status_id,cliente_id)
+values(mascota_seq.nextval,'Rabia',null,null,
+sysdate - 3,'Mimoso','DFMSJ123',sysdate-1495,sysdate-3150,round(dbms_random.value(1,47)),
+round(dbms_random.value(1,2)),null,6,null);
+
 commit;

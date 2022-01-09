@@ -5,7 +5,7 @@
 prompt Creando usuario Administrador
 create user aa_proy_admin identified by alfaro quota unlimited on users;
 grant create session, create table, create view, create sequence,
-  create procedure, create trigger to aa_proy_admin;
+  create procedure, create trigger, create type to aa_proy_admin;
 
 prompt Creando usuario Invitado
 create user aa_proy_invitado identified by alfaro quota unlimited on users;
