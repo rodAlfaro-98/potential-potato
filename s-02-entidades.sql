@@ -134,10 +134,12 @@ prompt creando tabla "Donativo"
 --drop table DONATIVO cascade constraint;
 create table DONATIVO(
   donativo_id number(10,0) constraint donativo_pk primary key,
-  fecha date not null,
-  monto number(7,2) not null,
+  fecha date default sysdate not null,
+  monto number(7,2) default 500.00 not null,
   cliente_id number(10,0) constraint donativo_cliente_id_fk 
-  references cliente(cliente_id)
+  references cliente(cliente_id),
+  iva_donativo generated always as (round(monto*0.16)) virtual,
+  isr_donativo generated always as (monto*0.1) virtual
 );
 
 prompt creando tabla "Origen Mascota"
@@ -200,7 +202,7 @@ prompt creando tabla "HISTORIAL_STATUS"
 --drop table historial_status cascade constraint;
 create table HISTORIAL_STATUS(
 	historial_status_id number(10,0) constraint histotial_status_pk primary key,
-	fecha_status date default sysdate not null,
+	fecha_status date not null,
 	status_id number(1,0) constraint historial_status_status_id_fk
 	references status(status_id),
 	mascota_id number(10,0) constraint historial_status_mascota_id_fk

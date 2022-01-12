@@ -9,8 +9,8 @@ begin
 	  v_fecha := sysdate - i;
     v_monto := i *100;
     v_cliente := round(dbms_random.value(1,100));
-    dbms_output.put_line(v_fecha||','||v_monto||','||v_cliente);
+    --dbms_output.put_line(v_fecha||','||v_monto||','||v_cliente||','||i);
     insert into donativo(donativo_id,fecha,monto,cliente_id) values(donativo_seq.nextval,v_fecha,v_monto,v_cliente);
   end loop;
-end;
+end; 
 /

@@ -21,7 +21,7 @@ Prompt cargando titulo
 @@s-09-carga-titulo.sql
 
 Prompt cargando donativo
-@@s-09-donativo.sql
+@@s-09-carga-donativo.sql
 
 Prompt cargando centros operativo
 @@s-09-carga-centro-operativo.sql

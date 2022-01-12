@@ -33,5 +33,5 @@ create index empleado_nombres_apellido_paterno_apellido_materno_ix
 on empleado(nombres,apellido_paterno,apellido_materno);
 
 Prompt creando indice de donativos por fecha
---drop index donativo_fecha_ix;
-create index donativo_fecha_ix on donativo(to_char('dd/mm/yyyy',fecha));
+drop index donativo_fecha_ix;
+create index donativo_fecha_ix on donativo(to_char(fecha,'dd/mm/yyyy'));
