@@ -3,7 +3,7 @@
 --@Descripción:     Script de creación de las tablas temporales del proyecto de Pet Home
 
 prompt Creando tabla temporal cliente interes mascota
-drop table cliente_interes_mascota_temp_commit;
+--drop table cliente_interes_mascota_temp_commit;
 create global temporary table cliente_interes_mascota_temp_commit(
   cliente_id number(10,0) not null,
   mascota_id number(10,0) not null,
@@ -20,7 +20,7 @@ create private temporary table ora$ptt_datos_donaciones_txn (
   min_donacion number(13,2)
 )on commit drop definition;
 
-drop table mascota_defuncion_temp;
+--drop table mascota_defuncion_temp;
 create global temporary table mascota_defuncion_temp(
   mascota_id number(10,0),
   nombre varchar2(80),

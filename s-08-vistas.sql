@@ -2,8 +2,8 @@
 --@Fecha Creación:  02/11/2022
 --@Descripción:     Script de creación de las vistas del proyecto de Pet Home
 
-
-
+Prompt Entrando al usuario aa_proy_admin
+connect aa_proy_admin
 create or replace view v_registro_mascota(
   mascota_id,nombre,nivel_cuidado,estado,nombre_papa,nombre_mama,tipo_mascota_papa,
   tipo_mascota_mama,subcategoria_papa,subcategoria_mama 

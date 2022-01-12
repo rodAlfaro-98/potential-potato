@@ -57,9 +57,3 @@ prompt cambiando permisos
 !chmod 777 /tmp/bases
 
 prompt mostrando los datos 
-
-col nombre format a20
-col ap_paterno format a20
-col ap_materno format a20
-
-select * from cliente_ext;

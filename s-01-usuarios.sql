@@ -11,11 +11,4 @@ prompt Creando usuario Invitado
 create user aa_proy_invitado identified by alfaro quota unlimited on users;
 grant create session, create synonym to aa_proy_invitado;
 
-prompt Iniciando con usuario Admin
 
-connect aa_proy_admin/alfaro
-
-prompt Creando TABLAS
-
-
-promtp CREACION DE TABLAS EXITOSA

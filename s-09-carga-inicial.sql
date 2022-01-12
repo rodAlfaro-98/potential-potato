@@ -20,7 +20,7 @@ Prompt cargando tipo_mascota
 Prompt cargando titulo
 @@s-09-carga-titulo.sql
 
-Prompt cargando donativos
+Prompt cargando donativo
 @@s-09-donativo.sql
 
 Prompt cargando centros operativo

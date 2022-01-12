@@ -1,7 +1,3 @@
---@Autor(es):       (Alfaro) (Alfaro Alejandro Esaú|Domínguez Rodrigo)
---@Fecha Creación:  30/12/2021
---@Descripción:     Script de creación de la carga empleado del proyecto de Pet Home
-
 declare
     v_mascota_id number(10,0);
     v_donacion  number(7,2);

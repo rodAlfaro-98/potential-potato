@@ -29,7 +29,7 @@ begin
 	v_nom := nombres(mod(i,8)+1);
 	v_ap_paterno := app(mod(i,5)+1);
 	v_codigo := substr(v_nom,1,1)||substr(v_ap_paterno,1,1)||i;
-	v_nombre_refugio := v_nom ||' '|| v_ap_paterno;
+	v_nombre_refugio := v_nom ||' '|| v_ap_paterno||' '||i;
 	v_latitud := mod(dbms_random.random,99) + 1 ;
 	v_longitud := mod(dbms_random.random,99) + 1 ;
     if(mod(i,4) = 0)then
