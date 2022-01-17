@@ -39,11 +39,13 @@ begin
     v_bfile := bfilename('FIRMAS_ELECTRONICAS',p_nombre_firma);
 
     if(dbms_lob.fileexists(v_bfile) = 0) then
-        raise_application_error(-20001,'El archivo '||p_nombre_firma||' no existe');
+        raise_application_error(-20001,'El archivo '
+        ||p_nombre_firma||' no existe');
     end if;
     --abrir archivo
     if(dbms_lob.isopen(v_bfile) = 1) then
-        raise_application_error(-20001,'El archivo esta abierto '||p_nombre_firma||' no se puede usar');
+        raise_application_error(-20001,'El archivo esta abierto '
+        ||p_nombre_firma||' no se puede usar');
     end if;
 
     --abriemdo archivo

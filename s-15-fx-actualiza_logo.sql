@@ -55,11 +55,13 @@ for refugio in cur_datos_refugio loop
     v_bfile := bfilename('FOTOS_DIR',v_nombre_archivo);
 
     if(dbms_lob.fileexists(v_bfile) = 0) then
-        raise_application_error(-20001,'El archivo '||v_nombre_archivo||' no existe');
+        raise_application_error(-20001,'El archivo '
+        ||v_nombre_archivo||' no existe');
     end if;
     --abrir archivo
     if(dbms_lob.isopen(v_bfile) = 1) then
-        raise_application_error(-20001,'El archivo esta abierto '||v_nombre_archivo||' no se puede usar');
+        raise_application_error(-20001,'El archivo esta abierto '
+        ||v_nombre_archivo||' no se puede usar');
     end if;
 
     --abriemdo archivo

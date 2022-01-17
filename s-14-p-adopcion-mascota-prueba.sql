@@ -5,7 +5,7 @@
 set serveroutput on;
 
 declare 
-v_mascota_1 number(3,0):
+v_mascota_1 number(3,0);
 begin
     select min(r.mascota_id) into v_mascota_1 from
     (select i.mascota_id 

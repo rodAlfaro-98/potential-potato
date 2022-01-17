@@ -8,7 +8,7 @@ declare
 begin
     v_exitoso := fx_actualiza_logo(3,20);
     if(v_exitoso = 1) then
-        dbms_output.put_line('Se actualizaron de manera exitosa los registros');
+    dbms_output.put_line('Se actualizaron de manera exitosa los registros');
     end if;
     commit;
 end;

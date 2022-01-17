@@ -57,11 +57,14 @@ begin
 			where m.mascota_id = mascota.mascota_id;
 
 			if(v_fecha_a_revisar - 180 >= v_fecha_revision) then
-								insert into notificacion_revision_cliente(notificacion_revision_cliente_id,
+				insert into notificacion_revision_cliente
+                (notificacion_revision_cliente_id,
                   revision_mascota_adoptada_id,mascota_id,calificacion_salud,
                   status_actual_id,observaciones,fecha_ultima_revision)
-                values(notificacion_revision_cliente_seq.nextval,v_revision_id,mascota.mascota_id,
-                  v_calificacion_salud,mascota.status_id,v_observaciones,v_fecha_revision);
+                values(notificacion_revision_cliente_seq.nextval,v_revision_id,
+                mascota.mascota_id,
+                  v_calificacion_salud,mascota.status_id,
+                  v_observaciones,v_fecha_revision);
 							end if;
 				end if;
         else

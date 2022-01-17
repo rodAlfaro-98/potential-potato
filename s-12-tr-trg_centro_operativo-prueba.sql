@@ -13,11 +13,11 @@ declare
 	v_registros number(5,0);
 begin
 
-    insert into centro_operativo (
-		centro_operativo_id,empleado_id,es_refugio,es_clinica,
-		es_oficina,direccion,latitud,longitud,codigo,nombre,centro)
-	values(centro_operativo_seq.nextval,3,1,
-		0,0,'Rio blanco 201',95.720,35.14,'MP201','Maria^s PetShop');
+  insert into centro_operativo (
+		centro_operativo_id,empleado_id,es_refugio,es_clinica,es_oficina,direccion,
+    latitud,longitud,codigo,nombre)
+	values(centro_operativo_seq.nextval,3,1,0,0,'Rio blanco 201',95.720,35.14,
+    'MP201','Maria^s PetShop');
 
     select count (*) into v_registros
     from centro_operativo
@@ -40,10 +40,10 @@ declare
 	v_registros number(5,0);
 begin
     insert into centro_operativo (
-		centro_operativo_id,empleado_id,es_refugio,es_clinica,
-		es_oficina,direccion,latitud,longitud,codigo,nombre)
-	values(centro_operativo_seq.nextval,1,1,
-		0,0,'Rio blanco 201',95.720,35.14,'MP201','Maria^s Refugio');
+		  centro_operativo_id,empleado_id,es_refugio,es_clinica,
+   	  es_oficina,direccion,latitud,longitud,codigo,nombre)
+	  values(centro_operativo_seq.nextval,1,1,
+		  0,0,'Rio blanco 201',95.720,35.14,'MP201','Maria^s Refugio');
 
     select count (*) into v_registros
     from centro_operativo
@@ -69,8 +69,8 @@ declare
 begin
     
     update centro_operativo
-    set empleado_id = 3, direccion = 'Rio Blanco 666',latitud = 80.92,longitud = 70.23,
-		codigo = 'MKLOP'
+    set empleado_id = 3, direccion = 'Rio Blanco 666',latitud = 80.92,
+      longitud = 70.23,codigo = 'MKLOP'
     where centro_operativo_id = 100;
 
     select empleado_id into v_empleado_id
@@ -96,8 +96,8 @@ declare
 begin
     
     update centro_operativo
-    set empleado_id = 1, direccion = 'Rio Blanco 666',latitud = 80.92,longitud = 70.23,
-		codigo = 'MKLOP'
+    set empleado_id = 1, direccion = 'Rio Blanco 666',latitud = 80.92,
+      longitud = 70.23, codigo = 'MKLOP'
     where centro_operativo_id = 100;
 
     select empleado_id into v_empleado_id

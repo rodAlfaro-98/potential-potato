@@ -3,6 +3,7 @@
 --@Fecha Creación:  05/01/2022
 --@Descripción:     Script de carga de la tabla mascota
 
+declare
     v_fecha_status date;
     type v_nombre is varray(21) of varchar2(50);
     nombres v_nombre;

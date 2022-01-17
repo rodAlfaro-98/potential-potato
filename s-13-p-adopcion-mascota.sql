@@ -30,7 +30,8 @@ begin
     where mascota_id = p_mascota_id;
 
 		if(v_tiene_cliente > 0) then
-			raise_application_error(-20010,'La mascota con id '||p_mascota_id|| ' ya cuenta con un dueño');
+			raise_application_error(-20010,'La mascota con id '
+            ||p_mascota_id|| ' ya cuenta con un dueño');
 		end if;
 
     select count(*) into v_num_interesados
@@ -39,7 +40,8 @@ begin
 	
     
 		if(v_num_interesados = 0) then
-        raise_application_error(-20010,'Por el momento no hay interesados en la mascota con id '||p_mascota_id);
+        raise_application_error(-20010,'Por el momento no hay interesados en la mascota con id '
+        ||p_mascota_id);
     end if;
 
     select min(fecha_seleccion) into v_fecha_mas_antigua
@@ -72,7 +74,6 @@ begin
 					
 		end loop;
 		if(v_id_max_donacion > 0 ) then
-            dbms_output.put_line(v_id_max_donacion);
             for interesado in cur_datos_interesados loop 
                 if(interesado.cliente_id <> v_id_max_donacion) then
                     insert into motivo_rechazo(motivo_rechazo_id,cliente_id,fecha_rechazo,mascota_id,observaciones)
@@ -85,7 +86,6 @@ begin
 			update mascota set cliente_id = v_id_max_donacion, status_id = 3 where mascota_id = p_mascota_id;
         else 
 			v_cliente_random := dbms_random.value(1,v_num_interesados);
-			dbms_output.put_line(v_cliente_random);
             v_num_iteracion := 1;
             for interesado in cur_datos_interesados loop 
 

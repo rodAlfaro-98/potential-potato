@@ -22,7 +22,6 @@ begin
             if(v_es_gerente = 1) then
 				dbms_output.put_line('El registro fue insertado con exito');
             else
-                delete from centro_operativo where empleado_id = :new.empleado_id;
                 raise_application_error(-20010,'El empleado con id '||:new.empleado_id||
                   ' no presenta el rol de gerente. Insert invalido');
             end if;
