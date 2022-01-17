@@ -1,3 +1,6 @@
+--@Autor(es):       (Alfaro) (Alfaro Alejandro Esaú|Domínguez Rodrigo)
+--@Fecha Creación:  05/01/2022
+--@Descripción:     Script de carga de la tabla donativos
 declare
   v_actual_id number(10,0);
   v_next_id number(10,0);

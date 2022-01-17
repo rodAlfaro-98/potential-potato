@@ -25,10 +25,14 @@ declare
 	v_password varchar2(40);
 begin
 
-  nombres := v_nombre('Juan','Pedro','Pablo','Hugo','Luis','Maria','Fernanda','Valeria','Francisca','Alberto');
-  app := v_apellido_paterno('Alfaro','Gutierrez','Perez','Lopez','Garcia','Hernandez','Robledo','Martinez','Dominguez','Todoroki');
-  apm := v_apellido_materno('Alfaro','Gutierrez','Perez','Lopez','Garcia','Hernandez','Robledo','Martinez','Dominguez','Todoroki');
-  v_ocupacion := v_ocupaciones('programador','heroe profesional','cazador de demonios','carnicero','biologo marino','alquimista estatal',
+  nombres := v_nombre('Juan','Pedro','Pablo','Hugo','Luis','Maria','Fernanda',
+    'Valeria','Francisca','Alberto');
+  app := v_apellido_paterno('Alfaro','Gutierrez','Perez','Lopez','Garcia',
+    'Hernandez','Robledo','Martinez','Dominguez','Todoroki');
+  apm := v_apellido_materno('Alfaro','Gutierrez','Perez','Lopez','Garcia',
+    'Hernandez','Robledo','Martinez','Dominguez','Todoroki');
+  v_ocupacion := v_ocupaciones('programador','heroe profesional',
+    'cazador de demonios','carnicero','biologo marino','alquimista estatal',
     'ninja','heroe clase S','sensei','jugador de lol profesional');
 
   for i in 1 .. 100 loop
@@ -39,8 +43,10 @@ begin
     v_ocup := v_ocupacion(mod(i,10) +1);
 	v_username := v_nom || i || v_ap_paterno;
     v_password := v_nom || i;
-    insert into cliente (cliente_id,nombre,apellido_paterno,apellido_materno,direccion,ocupacion,username,password)
-    values(cliente_seq.nextval,v_nom,v_ap_paterno,v_ap_materno,v_direccion,v_ocup,v_username,v_password);
+    insert into cliente (cliente_id,nombre,apellido_paterno,apellido_materno,
+      direccion,ocupacion,username,password)
+    values(cliente_seq.nextval,v_nom,v_ap_paterno,v_ap_materno,
+      v_direccion,v_ocup,v_username,v_password);
     /*dbms_output.put_line(v_es_gerente||','||v_es_veterinario||','
       ||v_es_administrativo||','||v_curp||','||v_num_cedula||','
       ||v_fecha_ingreso||','||v_email||','||v_nom||','||v_ap_paterno||','

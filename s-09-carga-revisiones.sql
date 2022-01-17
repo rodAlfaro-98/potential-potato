@@ -1,3 +1,9 @@
+--@Autor(es):       (Alfaro) (Alfaro Alejandro Esaú|Domínguez Rodrigo)
+--@Fecha Creación:  05/01/2022
+--@Descripción:     Script de carga de las tablas revision_mascota_refugio
+-- y revision_mascota_adoptada
+
+
 declare
     v_status_id number(1,0);
     v_refugio_id number(5,0);
@@ -14,7 +20,10 @@ begin
     
     for i in 1 .. 100 loop
 
-        nombres := v_nombre('Sin mayores complicaciones','Enfermedad leve','Requiere medicamentos','Requiere operacion','Requiere vendaje de pata','Requiere seguimiento','Completamente sano');
+        nombres := v_nombre('Sin mayores complicaciones','Enfermedad leve',
+          'Requiere medicamentos','Requiere operacion',
+          'Requiere vendaje de pata','Requiere seguimiento',
+          'Completamente sano');
         v_nom := nombres(round(dbms_random.value(1,6)));
 
         select status_id into v_status_id
@@ -29,8 +38,10 @@ begin
 
             v_empleado_id := 6*round(dbms_random.value(1,16))+1;
 
-            insert into Revision_mascota_refugio(revision_mascota_refugio_id,diagnostico,foto,mascota_id,empleado_id,fecha_revision)
-            values(REVISION_MASCOTA_REFUGIO_SEQ.nextval,v_nom,empty_blob(),i,v_empleado_id,v_fecha_revision);
+            insert into Revision_mascota_refugio(revision_mascota_refugio_id,
+              diagnostico,foto,mascota_id,empleado_id,fecha_revision)
+            values(REVISION_MASCOTA_REFUGIO_SEQ.nextval,v_nom,empty_blob(),
+              i,v_empleado_id,v_fecha_revision);
         else
             v_num_revision := round(dbms_random.value(1,100));
             v_fecha_revision := sysdate - 30*round(dbms_random.value(1,7));
@@ -42,8 +53,9 @@ begin
                 fecha_revision,calificacion_salud,costo,observaciones,
                 mascota_id,centro_operativo_id
             )
-            values(revision_mascota_adoptada_seq.nextval,v_num_revision,v_fecha_revision,
-            v_calificacion_salud,v_costo,v_nom,i,v_centro_operativo_id);
+            values(revision_mascota_adoptada_seq.nextval,v_num_revision,
+              v_fecha_revision, v_calificacion_salud,v_costo,v_nom,i,
+              v_centro_operativo_id);
         end if;
     end loop;
 end;

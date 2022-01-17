@@ -25,9 +25,12 @@ declare
   v_email varchar2(200);
 begin
 
-  nombres := v_nombre('Juan','Pedro','Pablo','Hugo','Luis','Maria','Fernanda','Valeria','Francisca','Alberto');
-  app := v_apellido_paterno('Alfaro','Gutierrez','Perez','Lopez','Garcia','Hernandez','Robledo','Martinez','Dominguez','Todoroki');
-  apm := v_apellido_materno('Alfaro','Gutierrez','Perez','Lopez','Garcia','Hernandez','Robledo','Martinez','Dominguez','Todoroki');
+  nombres := v_nombre('Juan','Pedro','Pablo','Hugo','Luis','Maria','Fernanda',
+    'Valeria','Francisca','Alberto');
+  app := v_apellido_paterno('Alfaro','Gutierrez','Perez','Lopez','Garcia',
+    'Hernandez','Robledo','Martinez','Dominguez','Todoroki');
+  apm := v_apellido_materno('Alfaro','Gutierrez','Perez','Lopez','Garcia',
+    'Hernandez','Robledo','Martinez','Dominguez','Todoroki');
   
   for i in 1 .. 100 loop
     v_curp := 'AADR980715HDFL'||i;

@@ -47,7 +47,8 @@ begin
     dbms_output.put_line('Empezando inserciones');
     forall i in sueldo_list.first .. sueldo_list.last
         insert into empleado_log(empleado_log_id,empleado_id,sueldo_anterior,
-          sueldo_nuevo,es_veterinario,es_administrativo,fecha_actualizacion,usuario)
+          sueldo_nuevo,es_veterinario,es_administrativo,fecha_actualizacion,
+          usuario)
 		values(sueldo_list(i).empleado_log_id,sueldo_list(i).empleado_id,
           sueldo_list(i).sueldo_anterior,sueldo_list(i).sueldo_nuevo,
           sueldo_list(i).es_veterinario,sueldo_list(i).es_administrativo,

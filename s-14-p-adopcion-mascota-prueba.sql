@@ -5,10 +5,15 @@
 set serveroutput on;
 
 declare 
-
+v_mascota_1 number(3,0):
 begin
+    select min(r.mascota_id) into v_mascota_1 from
+    (select i.mascota_id 
+    from mascota m join interesado_mascota i
+    on m.mascota_id = i.mascota_id
+    where m.cliente_id is null) r;
 
-	p_adopcion_mascota(p_mascota_id => 18);
+	p_adopcion_mascota(p_mascota_id => v_mascota_1);
 end;
 /
 

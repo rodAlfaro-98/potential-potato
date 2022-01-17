@@ -5,8 +5,9 @@
 Prompt Entrando al usuario aa_proy_admin
 connect aa_proy_admin
 create or replace view v_registro_mascota(
-  mascota_id,nombre,nivel_cuidado,estado,nombre_papa,nombre_mama,tipo_mascota_papa,
-  tipo_mascota_mama,subcategoria_papa,subcategoria_mama 
+  mascota_id,nombre,nivel_cuidado,estado,nombre_papa,nombre_mama,
+  tipo_mascota_papa,tipo_mascota_mama,subcategoria_papa,
+  subcategoria_mama 
 ) as select m.mascota_id, m.nombre, t.nivel_cuidado,s.estado, nvl(mp.nombre,
   'Mascota no nacio en refugio'), nvl(mm.nombre,'Mascota no nacio en refugio')
   , tp.tipo, tm.tipo, tp.subcategoria, tm.subcategoria

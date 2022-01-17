@@ -35,24 +35,36 @@ begin
             if(v_es_gerente = 1) then
                 v_modificaciones := 'Se cambiaron los siguientes datos: ';
                 if(:old.direccion <> :new.direccion) then
-                    v_modificaciones :=  v_modificaciones || '\n direccion: anterior direccion= '||:old.direccion;
-                    v_modificaciones :=  v_modificaciones || '\n\t nueva direccion= '||:new.direccion;
+                    v_modificaciones :=  v_modificaciones 
+                    || '\n direccion: anterior direccion= '||:old.direccion;
+                    v_modificaciones :=  v_modificaciones 
+                    || '\n\t nueva direccion= '||:new.direccion;
                 end if;
                 if(:old.codigo <> :new.codigo) then
-                    v_modificaciones :=  v_modificaciones || '\n codigo: anterior codigo= '||:old.codigo;
-                    v_modificaciones :=  v_modificaciones || '\n\t nuevo codigo = '||:new.codigo;
+                    v_modificaciones :=  v_modificaciones 
+                    || '\n codigo: anterior codigo= '||:old.codigo;
+                    v_modificaciones :=  v_modificaciones 
+                    || '\n\t nuevo codigo = '||:new.codigo;
                 end if;
                 if(:old.latitud <> :new.latitud) then
-                    v_modificaciones :=  v_modificaciones || '\n latitud: anterior latitud= '||:old.latitud;
-                    v_modificaciones :=  v_modificaciones || '\n\t nueva latitud= '||:new.latitud;
+                    v_modificaciones :=  v_modificaciones 
+                    || '\n latitud: anterior latitud= '||:old.latitud;
+                    v_modificaciones :=  v_modificaciones 
+                    || '\n\t nueva latitud= '||:new.latitud;
                 end if;
                 if(:old.longitud <> :new.longitud) then
-                    v_modificaciones :=  v_modificaciones || '\n latitud: anterior longitud= '||:old.longitud;
-                    v_modificaciones :=  v_modificaciones || '\n\t nueva longitud= '||:new.longitud;
+                    v_modificaciones :=  v_modificaciones 
+                    || '\n latitud: anterior longitud= '||:old.longitud;
+                    v_modificaciones :=  v_modificaciones 
+                    || '\n\t nueva longitud= '||:new.longitud;
                 end if;
 
-                insert into operaciones_centro_operativo(operaciones_centro_operativo_id,usuario,fecha_accion,empleado_antiguo,empleado_nuevo,otros_cambios)
-                values(operaciones_centro_operativo_seq.nextval,sys_context('USERENV','SESSION_USER'),sysdate,:old.empleado_id, :new.empleado_id,v_modificaciones);
+                insert into operaciones_centro_operativo(
+                    operaciones_centro_operativo_id,usuario,fecha_accion,
+                    empleado_antiguo,empleado_nuevo,otros_cambios)
+                values(operaciones_centro_operativo_seq.nextval,
+                    sys_context('USERENV','SESSION_USER'),sysdate,
+                    :old.empleado_id, :new.empleado_id,v_modificaciones);
 
             else
                 raise_application_error(-20010,'El empleado con id '||:new.empleado_id||

@@ -1,6 +1,7 @@
 --@Autor(es):       (Alfaro) (Alfaro Alejandro Esaú|Domínguez Rodrigo)
 --@Fecha Creación:  2/01/2022
---@Descripción:     Script de creación de las tablas temporales del proyecto de Pet Home
+--@Descripción:     Script de creación de las tablas temporales del proyecto
+--de Pet Home
 
 prompt Creando tabla temporal cliente interes mascota
 --drop table cliente_interes_mascota_temp_commit;

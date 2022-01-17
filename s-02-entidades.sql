@@ -311,7 +311,8 @@ create table notificacion_revision_cliente(
   notificacion_revision_cliente_mascota_id_fk references mascota(mascota_id),
   calificacion_salud number(2,0) not null,
   status_actual_id number(10,0) constraint 
-  notificacion_revision_cliente_status_actual_id_fk references status(status_id),
+  notificacion_revision_cliente_status_actual_id_fk 
+  references status(status_id),
   observaciones varchar2(500) not null,
   fecha_ultima_revision date not null
 );
@@ -331,6 +332,7 @@ create table notificacion_revision_refugio(
   references empleado(empleado_id),
   diagnostico_pasado varchar2(500) not null,
   status_actual_id number(10,0) constraint 
-  notificacion_revision_refugio_status_actual_id_fk references status(status_id),
+  notificacion_revision_refugio_status_actual_id_fk 
+  references status(status_id),
   fecha_ultima_revision date not null
 );

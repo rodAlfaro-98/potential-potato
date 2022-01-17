@@ -39,7 +39,8 @@ organization external (
         lrtrim
         missing field values are null 
         (
-        	cliente_id, nombre, apellido_paterno, apellido_materno,direccion,ocupacion,username,password
+        	cliente_id, nombre, apellido_paterno, apellido_materno,direccion,
+            ocupacion,username,password
         )
     )
     location ('cliente_ext.csv')

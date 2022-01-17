@@ -32,19 +32,25 @@ begin
         end if;
 
 		if(:new.status_id >=3 and (v_centro_operativo_id is not null or :new.cliente_id is null ) )then
-            raise_application_error(-20010,'El status '||:new.status_id|| 'indica que no nació en refugio y ya fue adoptada la mascota');
+            raise_application_error(-20010,'El status '||:new.status_id
+            || 'indica que no nació en refugio y ya fue adoptada la mascota');
         end if;
         if(:new.status_id < 3 and :new.cliente_id is not null) then
-            raise_application_error(-20010,'El status '||:new.status_id|| 'indica que la mascota no ha sido adoptada');
+            raise_application_error(-20010,'El status '||:new.status_id
+            || 'indica que la mascota no ha sido adoptada');
         end if;
         if(:new.status_id >= 6 and :new.causa_muerte is null) then
-            raise_application_error(-20010,'El status '||:new.status_id|| 'indica que la mascota ya falleció y no hay causa de muerte');
+            raise_application_error(-20010,'El status '||:new.status_id
+            || 'indica que la mascota ya falleció y no hay causa de muerte');
         end if;
         if(v_es_refugio = 0 and :new.origen_mascota_id = 3) then
-            raise_application_error(-20010,'El status '||:new.status_id|| 'indica que la mascota nacio en refugio y el centro_operativo '||:new.centro_operativo_id||' no corresponde a un refugio');
+            raise_application_error(-20010,'El status '||:new.status_id
+            || 'indica que la mascota nacio en refugio y el centro_operativo '
+            ||:new.centro_operativo_id||' no corresponde a un refugio');
         end if;
         if(v_es_refugio = 1 and :new.origen_mascota_id <> 3) then
-            raise_application_error(-20010,'El status '||:new.status_id|| 'indica que la mascota no nacio en refugio');
+            raise_application_error(-20010,'El status '||:new.status_id
+            || 'indica que la mascota no nacio en refugio');
         end if;
         dbms_output.put_line('Insertando primer estatus en historial_status');
         insert into historial_status(historial_status_id,fecha_status,status_id,mascota_id)
@@ -74,10 +80,13 @@ begin
         end if;
 
 		if(v_es_refugio = 1 and :new.origen_mascota_id < 3) then
-            raise_application_error(-20010,'El status '||:new.status_id|| ' indica que la mascota no nacio en refugio');
+            raise_application_error(-20010,'El status '||:new.status_id
+            || ' indica que la mascota no nacio en refugio');
         end if;
         if(v_es_refugio = 0 and :new.origen_mascota_id = 3) then
-            raise_application_error(-20010,'El status '||:new.status_id|| ' indica que la mascota nacio en refugio y el centro_operativo '||:new.centro_operativo_id||' no corresponde a un refugio');
+            raise_application_error(-20010,'El status '||:new.status_id
+            || ' indica que la mascota nacio en refugio y el centro_operativo '
+            ||:new.centro_operativo_id||' no corresponde a un refugio');
         end if;
         if(:old.status_id <> :new.status_id) then
             dbms_output.put_line('Insertando nuevo estatus en historial_status');
@@ -85,7 +94,8 @@ begin
             values(HISTORIAL_STATUS_SEQ.nextval,sysdate,:new.status_id,:old.mascota_id);
         end if;
 		if((:new.status_id = 6 or :new.status_id = 7) and :new.causa_muerte = null) then
-            raise_application_error(-20010,'El status '||:new.status_id||' indica que la mascota falleció y no hay causa de muerte');
+            raise_application_error(-20010,'El status '||:new.status_id
+            ||' indica que la mascota falleció y no hay causa de muerte');
         end if;
     when deleting then
         raise_application_error(-20010,'No se puede borrar una mascota a pesar de haber fallecido');

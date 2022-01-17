@@ -1,3 +1,7 @@
+--@Autor(es):       (Alfaro) (Alfaro Alejandro Esaú|Domínguez Rodrigo)
+--@Fecha Creación:  05/01/2022
+--@Descripción:     Script de prueba de trigger encargado de validar
+-- que el empleado ingresado a la tabla de centro_operativo sea un gerente
 set serveroutput on
 
 prompt ====================================================================

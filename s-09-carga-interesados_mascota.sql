@@ -1,3 +1,6 @@
+--@Autor(es):       (Alfaro) (Alfaro Alejandro Esaú|Domínguez Rodrigo)
+--@Fecha Creación:  05/01/2022
+--@Descripción:     Script de carga de interesados_mascota
 declare
     v_mascota_id number(10,0);
     v_donacion  number(7,2);
@@ -24,15 +27,17 @@ begin
                 and cliente_id = v_cliente_random;
                 
                 if(v_interesados = 0) then
-                    v_fecha_seleccion := sysdate - dbms_random.value(1,16);
+                    v_fecha_seleccion := sysdate - dbms_random.value(10,30);
 
-                    insert into interesado_mascota (cliente_id,mascota_id,fecha_seleccion)
+                    insert into interesado_mascota (cliente_id,mascota_id,
+                      fecha_seleccion)
     				values(v_cliente_random,v_mascota_id,v_fecha_seleccion);
                 
                     v_donacion := dbms_random.value(1,10) * 20;
 
                     insert into donativo(donativo_id,fecha,monto,cliente_id)
-                    values(DONATIVO_SEQ.nextval,v_fecha_seleccion,v_donacion,v_cliente_random);
+                    values(DONATIVO_SEQ.nextval,v_fecha_seleccion,v_donacion,
+                      v_cliente_random);
                 end if;
             end loop;
         end if;

@@ -1,3 +1,7 @@
+--@Autor(es):       (Alfaro) (Alfaro Alejandro Esaú|Domínguez Rodrigo)
+--@Fecha Creación:  05/01/2022
+--@Descripción:     Script de pruebda de trigger encargado de validar
+-- que los datos sean correctos 
 set serveroutput on;
 
 update empleado

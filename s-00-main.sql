@@ -2,13 +2,15 @@
 --@Fecha Creación:  11/01/2022
 --@Descripción:     Script main del proyecto de Pet Home
 
-connect sys/"Th3B3@tl3s" as sysdba;
+prompt Conectando a usuario sys
+connect sys as sysdba
 
 set serveroutput on;
 declare
     v_count number;
 begin
-    select count(*) into v_count from all_users where username = 'AA_PROY_ADMIN';
+    select count(*) into v_count from all_users 
+    where username = 'AA_PROY_ADMIN';
     if v_count > 0 then
         dbms_output.put_line('Eliminando al usuario aa_proy_admin');
         execute immediate 'drop user aa_proy_admin cascade';
@@ -19,7 +21,8 @@ end;
 declare
     v_count number;
 begin
-    select count(*) into v_count from all_users where username = 'AA_PROY_INVITADO';
+    select count(*) into v_count from all_users 
+    where username = 'AA_PROY_INVITADO';
     if v_count > 0 then
         dbms_output.put_line('Eliminando al usuario aa_proy_invitado');
         execute immediate 'drop user aa_proy_invitado cascade';

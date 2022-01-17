@@ -24,4 +24,5 @@ prompt creando sinonimo privado de mascota
 create or replace synonym s_mascota for aa_proy_admin.mascota;
 
 prompt creando sinonimo privado de revision_mascota_adoptada
-create or replace synonym s_revision_mascota_adoptada for aa_proy_admin.revision_mascota_adoptada ;
+create or replace synonym s_revision_mascota_adoptada 
+for aa_proy_admin.revision_mascota_adoptada;

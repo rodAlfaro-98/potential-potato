@@ -21,8 +21,10 @@ declare
   v_nombre_refugio varchar2(80);
 begin
 
-  nombres := v_nombre('Santuario','Abrigo','Establecimiento','Felicidad','Hotel','Patitas','Parque','Bienestar');
-  app := v_apellido_paterno('De lomitos','Para Perritos','de tus mascotas','de tus animalitos','de sus michis');
+  nombres := v_nombre('Santuario','Abrigo','Establecimiento','Felicidad',
+    'Hotel','Patitas','Parque','Bienestar');
+  app := v_apellido_paterno('De lomitos','Para Perritos','de tus mascotas',
+    'de tus animalitos','de sus michis');
   
   for i in 1 .. 100 loop
     v_direccion := 'calle ' || i || ' induatrial num: ' || (i + 3);
