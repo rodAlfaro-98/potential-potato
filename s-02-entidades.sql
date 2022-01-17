@@ -125,7 +125,7 @@ create table CLIENTE(
    apellido_materno varchar2(40) not null,
    direccion varchar2(500) not null,
    ocupacion varchar2(40) not null,
-   username varchar2(40) not null constraint cliente_username_uk unique,
+   username varchar2(40) not null,
    password varchar2(40) not null
 );
 

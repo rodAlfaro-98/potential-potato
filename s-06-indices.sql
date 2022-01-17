@@ -2,8 +2,8 @@
 --@Fecha Creación:  03/11/2022
 --@Descripción:     Script de creación de los índices del proyecto de Pet Home
 
---Prompt creando indice del username del cliente
---create unique index cliente_username_iuk on cliente(username);
+Prompt creando indice del username del cliente
+create unique index cliente_username_iuk on cliente(username);
 --Prompt creando indice unique para Empleado- email
 --create unique index empleado_email_iuk on empleado(email);
 --Pompt creando indice uniqe para empleado - curp
@@ -35,3 +35,4 @@ on empleado(nombres,apellido_paterno,apellido_materno);
 Prompt creando indice de donativos por fecha
 --drop index donativo_fecha_ix;
 create index donativo_fecha_ix on donativo(to_char(fecha,'dd/mm/yyyy'));
+
